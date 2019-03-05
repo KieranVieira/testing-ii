@@ -3,16 +3,19 @@ import { render, fire, fireEvent } from 'react-testing-library'
 import 'jest-dom/extend-expect'
 
 import Dashboard from '../Dashboard/Dashboard';
-import Display from '../Display/Display';
 
 describe('<Dashboard />', () => {
-    it('Should change balls on display on click', () => {
-        const { getByText } = render(<Dashboard/>)
+    it('Should display Buttons', () => {
+        const { getByText } = render(<Dashboard />);
 
-        const ballBtn = getByText(/ball/i)
-
-        fireEvent.click(ballBtn)
-
-        expect(render(<Display/>).getByText(/balls: 1/i)).toBeInTheDocument()
+        const strike = getByText(/strike/i);
+        const ball = getByText(/ball/i);
+        const foul = getByText(/foul/i);
+        const hit = getByText(/hit/i);
+        
+        expect(strike).toBeInTheDocument();
+        expect(ball).toBeInTheDocument();
+        expect(foul).toBeInTheDocument();
+        expect(hit).toBeInTheDocument();
     });
 });
