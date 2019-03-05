@@ -3,7 +3,6 @@ import React from 'react'
 const Dashboard = props => {
   return (
     <div>
-      Dashboard
       <button onClick={() => props.strike()}>strike</button>
       <button onClick={() => props.ball()}>ball</button>
       <button onClick={() => props.foul()}>foul</button>
