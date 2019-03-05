@@ -15,6 +15,9 @@ describe('<Display/>', () => {
   it('renders without crashing', () => {
     render(<Display />);
   });
+  it('Should render ', () => {
+    
+  });
 });
 
 describe('<Dashboard/>', () => {
