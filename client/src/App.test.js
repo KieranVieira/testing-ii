@@ -46,4 +46,14 @@ describe('<App/>', () => {
     expect(getByTestId(/strikes-count/i).textContent).toBe("Strikes: 0")
     expect(getByTestId(/balls-count/i).textContent).toBe("Balls: 0")
   });
+
+  it('Should give +1 strike on foul', () => {
+    const { getByTestId } = render(<App />)
+
+    const foulButton = getByTestId(/foulBtn/i);
+
+    fireEvent.click(foulButton);
+
+    expect(getByTestId(/strikes-count/i).textContent).toBe("Strikes: 1")
+  });
 });

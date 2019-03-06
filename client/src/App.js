@@ -29,9 +29,17 @@ class App extends Component {
   }
 
   foul = () => {
-    this.setState({
-      strikes: this.state.strikes + 1
-    })
+    if(this.state.strikes === 0){
+      this.setState({
+        strikes: this.state.strikes + 1
+      })
+    }else if(this.state.strikes === 1){
+      this.setState({
+        strikes: this.state.strikes + 2
+      })
+    }else{
+      return null
+    }
   }
 
   hit = () => {
