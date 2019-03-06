@@ -28,4 +28,22 @@ describe('<App/>', () => {
 
     expect(getByTestId(/balls-count/i).textContent).toBe("Balls: 1")
   });
+
+  it('Should reset balls/strikes if balls = 4 or strikes = 3', () => {
+    const { getByTestId } = render(<App />)
+
+    const strikeButton = getByTestId(/strikeBtn/i);
+    const ballButton = getByTestId(/ballBtn/i);
+
+    fireEvent.click(strikeButton)
+    fireEvent.click(strikeButton)
+    fireEvent.click(strikeButton)
+    fireEvent.click(ballButton)
+    fireEvent.click(ballButton)
+    fireEvent.click(ballButton)
+    fireEvent.click(ballButton)
+
+    expect(getByTestId(/strikes-count/i).textContent).toBe("Strikes: 0")
+    expect(getByTestId(/balls-count/i).textContent).toBe("Balls: 0")
+  });
 });
